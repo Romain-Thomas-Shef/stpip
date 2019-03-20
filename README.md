@@ -15,18 +15,18 @@ How to use it?
 
 To display the help you can `stpip --help` and you will get:
 
-`usage: stpip [-h] [-w] [-m] [-t] [--version] package
+	`usage: stpip [-h] [-w] [-m] [-t] [--version] package
 
-A pepy.tech web scraping for pypi download stats, version 19.3.0, Licence: GPL
+	A pepy.tech web scraping for pypi download stats, version 19.3.0, Licence: GPL
 
-positional arguments:
-  package     file, or list of file separated by comas (no space)
+	positional arguments:
+	  package     file, or list of file separated by comas (no space)
 
-optional arguments:
-  -h, --help  show this help message and exit
-  -w          if you just want the last week download counts
-  -m          if you just want the last month download counts
-  -t          if you just want download counts all time
-  --version   Display the version of stpip`
+	optional arguments:
+	  -h, --help  show this help message and exit
+	  -w          if you just want the last week download counts
+	  -m          if you just want the last month download counts
+	  -t          if you just want download counts all time
+	  --version   Display the version of stpip`
 
 
