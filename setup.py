@@ -20,6 +20,7 @@ setup(
    python_requires = '>=3.6',
    install_requires = [
        "bs4 >= 0.4.15",
+       "request >= 2.21.0",
    ],
    include_package_data=True,
 )
