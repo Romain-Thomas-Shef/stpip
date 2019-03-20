@@ -29,4 +29,56 @@ To display the help you can `stpip --help` and you will get:
 	  -t          if you just want download counts all time
 	  --version   Display the version of stpip`
 
+The only mandatory argument is the name of the package. Providing only this one will give all the information. For example, `matplotlip`:
+
+	>> stpip matplotlib
+
+will give:
+
+	###############################################
+	      Download counts for matplotlib 
+	 Total all time: 48011552
+	 Total last month: 6327682
+	 Total last week: 1790028
+	 last day 2019-03-18: 234,726
+	--> visit https://pepy.tech/project/matplotlib 
+	##############################################
+
+Then you can ask for some particular information with the '-t' (only total), '-m' (last month) and '-w' (only last week):
+
+	>> stpip matplotlib -t
+
+will give:
+
+	###############################################
+	      Download counts for matplotlib 
+	 Total all time: 48011552
+	--> visit https://pepy.tech/project/matplotlib 
+	##############################################
+
+
+You can also give multiple packages:
+
+	>> stpip matplotlib,numpy
+
+will give:
+
+	###############################################
+	      Download counts for matplotlib 
+	 Total all time: 48011552
+	 Total last month: 6327682
+	 Total last week: 1790028
+	 last day 2019-03-18: 234,726
+	--> visit https://pepy.tech/project/matplotlib 
+	##############################################
+
+
+	###############################################
+	      Download counts for numpy 
+	 Total all time: 171005305
+	 Total last month: 20108764
+	 Total last week: 4608706
+	 last day 2019-03-18: 736,912
+	--> visit https://pepy.tech/project/numpy 
+	##############################################
 

@@ -63,4 +63,5 @@ def main():
             elif args.w:
                 display.indiv(day, 'week', i)
 
-        print('\033[1mTotal for all requested packages: %s Downloads'% tot)
+        if len(packs)>1:
+            print('\033[1mTotal for all requested packages: %s Downloads'% tot)
