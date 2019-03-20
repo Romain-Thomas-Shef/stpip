@@ -2,7 +2,7 @@ Metadata-Version: 1.2
 Name: stpip
 Version: 19.3.0
 Summary: a pepy.tech web-scrapping for pypi download statistics
-Home-page: https://astrom-tom.github.io/dfitspy/build/html/index.html
+Home-page: https://github.com/astrom-tom/stpip
 Author: Romain Thomas
 License: GNU GPL v3
 Description: UNKNOWN

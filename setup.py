@@ -6,7 +6,7 @@ __license__ = "GNU GPL v3"
 __maintainer__ = "Romain Thomas"
 __email__ = "the.spartan.proj@gmail.com"
 __status__ = "released"
-__website__ = "https://astrom-tom.github.io/dfitspy/build/html/index.html"
+__website__ = "https://github.com/astrom-tom/stpip"
 
 setup(
    name = 'stpip',
