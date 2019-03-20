@@ -1,7 +1,6 @@
 from setuptools import setup
 
-__version__ = '19.3.4'
-__place__ = 'ESO Paranal observatory'
+__version__ = '19.3.0'
 __credits__ = "Romain Thomas"
 __license__ = "GNU GPL v3"
 __maintainer__ = "Romain Thomas"
@@ -10,19 +9,17 @@ __status__ = "released"
 __website__ = "https://astrom-tom.github.io/dfitspy/build/html/index.html"
 
 setup(
-   name = 'dfitspy',
+   name = 'stpip',
    version = __version__,
    author = __credits__,
-   packages = ['dfitspy'],
-   entry_points = {'gui_scripts': ['dfitspy = dfitspy.__main__:main',],},
-   description = 'A dfits|fitsio implementation in python',
+   packages = ['stpip'],
+   entry_points = {'console_scripts': ['stpip = stpip.__main__:main',],},
+   description = 'a pepy.tech web-scrapping for pypi download statistics',
    license = __license__,
    url = __website__,
    python_requires = '>=3.6',
    install_requires = [
-       "numpy >= 1.14.3",
-       "fitsio >= 0.9.11",
-       "python-magic >= 0.4.15",
+       "bs4 >= 0.4.15",
    ],
    include_package_data=True,
 )
