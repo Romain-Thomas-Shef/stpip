@@ -1,6 +1,6 @@
 from setuptools import setup
 
-__version__ = '19.3.0'
+__version__ = '19.3.1'
 __credits__ = "Romain Thomas"
 __license__ = "GNU GPL v3"
 __maintainer__ = "Romain Thomas"
@@ -19,8 +19,8 @@ setup(
    url = __website__,
    python_requires = '>=3.6',
    install_requires = [
-       "bs4 >= 0.4.15",
-       "request >= 2.21.0",
+       "requests >= 2.21.0",
+       "bs4 >= 0.0.1"
    ],
    include_package_data=True,
 )
