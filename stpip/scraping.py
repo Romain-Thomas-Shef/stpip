@@ -45,14 +45,24 @@ def scrap(package):
 
     a = [my_tag.text for my_tag in soup.find_all('table', attrs={'class':'table'})]
     counts = a[0].split()
+    
+    if counts[0] == 'Total':
+        total = int(counts[2].replace(',', ''))
+        month = int(counts[8].replace(',', ''))
+        day = int(counts[14].replace(',', ''))
 
-    total = int(counts[2].replace(',', ''))
-    month = int(counts[8].replace(',', ''))
-    day = int(counts[14].replace(',', ''))
+        last_days = a[1].split()
+        last_date_down = last_days[3]
+        last_date = last_days[2]
 
-    last_days = a[1].split()
-    last_date_down = last_days[3]
-    last_date = last_days[2]
+    else:
+        total = 0
+        month = 0
+        day = 0
+
+        last_days = 0
+        last_date_down = '0 0 0'
+        last_date = 0
 
     return total, month, day, last_date, last_date_down
 

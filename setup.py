@@ -1,6 +1,6 @@
 from setuptools import setup
 
-__version__ = '19.3.1'
+__version__ = '19.3.2'
 __credits__ = "Romain Thomas"
 __license__ = "GNU GPL v3"
 __maintainer__ = "Romain Thomas"
