@@ -32,9 +32,9 @@ def command_line(args):
     parser = argparse.ArgumentParser(description='A pepy.tech web scraping for pypi download stats, version %s, \
             Licence: GPL'%(info.__version__))
 
-    parser.add_argument('package', help='file, or list of file separated by comas (no space)')
 
     ###optional arguments
+    parser.add_argument('-p', help='file, or list of file separated by comas (no space)')
     parser.add_argument('-w', help='if you just want the last week download counts' , action='store_true')
     parser.add_argument('-m', help='if you just want the last month download counts' , action='store_true')
     parser.add_argument('-t', help='if you just want download counts all time' , action='store_true')

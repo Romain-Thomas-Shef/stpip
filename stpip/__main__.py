@@ -13,7 +13,6 @@ usage: stpip --help
 ###Python standard library
 import sys
 
-
 ###local imports
 from . import cli
 from . import __info__ as info
@@ -28,7 +27,7 @@ def main():
     args = cli.command_line(sys.argv[1:])
 
     ###here we check if at least one argument was given:
-    if not args.package and not args.version:
+    if not args.p and not args.version:
         print('\033[1m[stpip Error]> no argument passed ...exit\033[0;0m')
         sys.exit()
 
@@ -37,9 +36,9 @@ def main():
         print('version %s, Author: %s'%(info.__version__, info.__credits__))
         sys.exit()
 
-    if args.package:
+    if args.p:
         ###extract package names from CLI
-        packs = args.package.split(',')
+        packs = args.p.split(',')
 
         if len(packs)>1:
             tot = 0

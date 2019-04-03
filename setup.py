@@ -1,6 +1,6 @@
 from setuptools import setup
 
-__version__ = '19.3.2'
+__version__ = '19.3.6'
 __credits__ = "Romain Thomas"
 __license__ = "GNU GPL v3"
 __maintainer__ = "Romain Thomas"
@@ -14,10 +14,10 @@ setup(
    author = __credits__,
    packages = ['stpip'],
    entry_points = {'console_scripts': ['stpip = stpip.__main__:main',],},
-   description = 'a pepy.tech web-scrapping for pypi download statistics',
+   description = 'a pepy.tech webscraping for pypi download statistics',
    license = __license__,
    url = __website__,
-   python_requires = '>=3.6',
+   python_requires = '>=3.5',
    install_requires = [
        "requests >= 2.21.0",
        "bs4 >= 0.0.1"

@@ -1,6 +1,8 @@
 What is stpip?
 ==============
 
+[![DOI](https://zenodo.org/badge/176632808.svg)](https://zenodo.org/badge/latestdoi/176632808)
+
 stpip is a simple webscraping program the looks for pypi download statistics from the pepy.tech webpage
 
 
