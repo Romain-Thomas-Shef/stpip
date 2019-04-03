@@ -3,7 +3,7 @@ What is stpip?
 
 [![DOI](https://zenodo.org/badge/176632808.svg)](https://zenodo.org/badge/latestdoi/176632808)
 
-stpip is a simple webscraping program the looks for pypi download statistics from the pepy.tech webpage
+stpip is a simple webscraping program the looks for pypi download statistics from the pepy.tech webpage [https://github.com/psincraian/pepy]
 
 
 How to install stpip?
@@ -21,19 +21,17 @@ To display the help you can `stpip --help` and you will get:
 
 	A pepy.tech web scraping for pypi download stats, version 19.3.0, Licence: GPL
 
-	positional arguments:
-	  package     file, or list of file separated by comas (no space)
-
 	optional arguments:
 	  -h, --help  show this help message and exit
+	  -p P        file, or list of file separated by comas (no space)
 	  -w          if you just want the last week download counts
 	  -m          if you just want the last month download counts
 	  -t          if you just want download counts all time
-	  --version   Display the version of stpip`
+	  --version   Display the version of stpip
 
 The only mandatory argument is the name of the package. Providing only this one will give all the information. For example, `matplotlip`:
 
-	>> stpip matplotlib
+	>> stpip -p matplotlib
 
 will give:
 
@@ -48,7 +46,7 @@ will give:
 
 Then you can ask for some particular information with the '-t' (only total), '-m' (last month) and '-w' (only last week):
 
-	>> stpip matplotlib -t
+	>> stpip -p matplotlib -t
 
 will give:
 
@@ -61,7 +59,7 @@ will give:
 
 You can also give multiple packages:
 
-	>> stpip matplotlib,numpy
+	>> stpip -p matplotlib,numpy
 
 will give:
 
