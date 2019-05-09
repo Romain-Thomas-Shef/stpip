@@ -1,6 +1,9 @@
 What is stpip?
 ==============
 
+WARNING: Pepy.tech has recently changed the website and the number of downloads are not accessible by webscraping for the moment. I am working on a fix.
+
+
 [![DOI](https://zenodo.org/badge/176632808.svg)](https://zenodo.org/badge/latestdoi/176632808)
 
 stpip is a simple webscraping program the looks for pypi download statistics from the pepy.tech webpage [https://github.com/psincraian/pepy]
