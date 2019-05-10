@@ -1,4 +1,4 @@
-__version__ = '19.3.6'
+__version__ = '19.5.0'
 __place__ = 'Santiago, Chile'
 __credits__ = "Romain Thomas"
 __license__ = "GNU GPL v3"

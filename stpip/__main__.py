@@ -45,13 +45,13 @@ def main():
 
         ##and go scraping!
         for i in packs:
-            total, month, day, yesterday, yest_down = scraping.scrap(i)
+            total, month, day, yesterday, yest_down, ndays = scraping.scrap(i)
             
             if len(packs)>1:
                 tot += int(total) 
 
             if not args.t and not args.m and not args.w:
-                display.full(total, month, day, yesterday, yest_down, i)
+                display.full(total, month, day, yesterday, yest_down, ndays, i)
 
             elif args.t:
                 display.indiv(total, 'total', i)

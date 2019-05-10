@@ -1,9 +1,6 @@
 What is stpip?
 ==============
 
-WARNING: Pepy.tech has recently changed the website and the number of downloads are not accessible by webscraping for the moment. I am working on a fix.
-
-
 [![DOI](https://zenodo.org/badge/176632808.svg)](https://zenodo.org/badge/latestdoi/176632808)
 
 stpip is a simple webscraping program the looks for pypi download statistics from the pepy.tech webpage [https://github.com/psincraian/pepy]
@@ -41,8 +38,8 @@ will give:
 	###############################################
 	      Download counts for matplotlib 
 	 Total all time: 48011552
-	 Total last month: 6327682
-	 Total last week: 1790028
+	 Total last 30 days: 6327682
+	 Total last 7 days: 1790028
 	 last day 2019-03-18: 234,726
 	--> visit https://pepy.tech/project/matplotlib 
 	##############################################
@@ -69,8 +66,8 @@ will give:
 	###############################################
 	      Download counts for matplotlib 
 	 Total all time: 48011552
-	 Total last month: 6327682
-	 Total last week: 1790028
+	 Total last 30 days: 6327682
+	 Total last 7 days: 1790028
 	 last day 2019-03-18: 234,726
 	--> visit https://pepy.tech/project/matplotlib 
 	##############################################
@@ -79,8 +76,8 @@ will give:
 	###############################################
 	      Download counts for numpy 
 	 Total all time: 171005305
-	 Total last month: 20108764
-	 Total last week: 4608706
+	 Total last 30 days: 20108764
+	 Total last 7 days: 4608706
 	 last day 2019-03-18: 736,912
 	--> visit https://pepy.tech/project/numpy 
 	##############################################

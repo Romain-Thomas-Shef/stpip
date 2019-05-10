@@ -10,6 +10,8 @@ This file contains the code that go scrap the website
 
 ##standard library
 import requests
+import ast
+from datetime import datetime
 
 #local import
 from bs4 import BeautifulSoup
@@ -37,34 +39,34 @@ def scrap(package):
             int, number of downloads during last_date day
     '''
 
-    url = 'https://pepy.tech/project/' + package
+    url = 'https://api.pepy.tech/api/projects/' + package
 
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
-    name_box = soup.find_all('table', attrs={'class': 'table'})
 
-    a = [my_tag.text for my_tag in soup.find_all('table', attrs={'class':'table'})]
-    counts = a[0].split()
-    
-    if counts[0] == 'Total':
-        total = int(counts[2].replace(',', ''))
-        month = int(counts[8].replace(',', ''))
-        day = int(counts[14].replace(',', ''))
-
-        last_days = a[1].split()
-        last_date_down = last_days[3]
-        last_date = last_days[2]
-
-    else:
+    if soup.contents[0][:15] == "doctype html":
         total = 0
         month = 0
         day = 0
+        ndays = 0
 
-        last_days = 0
-        last_date_down = '0 0 0'
-        last_date = 0
+        last_day = '0'
+        last_date = '0 0 0'
+        
 
-    return total, month, day, last_date, last_date_down
+    else:
+        s = ast.literal_eval(soup.contents[0])
+        stripdates = list(s['downloads'].keys())
+        ndays = len(s['downloads'].values())
+     
+        total = s['total_downloads']
+        month = sum(s['downloads'].values())
+        day = sum(list(s['downloads'].values())[:7]) 
+
+        last_day = s['downloads'][stripdates[0]]
+        last_date = stripdates[0]
+
+    return total, month, day, last_day, last_date, ndays
 
 
 
