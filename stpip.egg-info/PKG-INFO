@@ -3,6 +3,7 @@ Name: stpip
 Version: 24.11
 Author-email: "R. Thomas" <romain.thomas@sheffield.ac.uk>
 Project-URL: repository, https://github.com/Romain-Thomas-Shef/stpip
+Requires-Python: >=3.10
 License-File: LICENSE
 Requires-Dist: requests>=2.21.0
 Requires-Dist: bs4>=0.0.1
