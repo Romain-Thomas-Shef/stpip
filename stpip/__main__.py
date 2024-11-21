@@ -27,7 +27,7 @@ def main():
     args = cli.command_line(sys.argv[1:])
 
     ###here we check if at least one argument was given:
-    if not args.p and not args.version:
+    if not args.p:
         print('\033[1m[stpip Error]> no argument passed ...exit\033[0;0m')
         sys.exit()
 
