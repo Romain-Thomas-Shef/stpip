@@ -3,20 +3,16 @@
 This file contains the code that go scrap the website
 
 @R. Thomas
-@Santiago, Chile
-@2019
+@Santiago, Chile / Sheffield, UK
+@2019--2024
 '''
 
 
 ##standard library
-import requests
-import ast
 from datetime import datetime
+import requests
 
-#local import
-from bs4 import BeautifulSoup
-
-def scrap(package):
+def scrap(package, apikey):
     '''
     This function go scrap pepy.tech
 
@@ -24,14 +20,16 @@ def scrap(package):
     -----------
     package
             str, name of the pypi package
+    apikey
+            str, apikey from pepy tech
 
     Returns
     -------
     total
             int, total number of downloads, all time
-    month
+    last_month
             int, number of downloads in last month
-    day
+    last_week
             int, number of downloads in the last week
     last_date
             str, date of the last day the stat was computed
@@ -39,34 +37,39 @@ def scrap(package):
             int, number of downloads during last_date day
     '''
 
-    url = 'https://api.pepy.tech/api/projects/' + package
-
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-
-    if soup.contents[0][:15] == "doctype html":
+    url = 'https://api.pepy.tech/api/v2/projects/' + package
+    headers = {'X-API-Key': apikey}
+    response = requests.get(url, headers=headers)
+    data = response.json()
+    ###In case the repo was not found
+    if 'message' in data.keys():
         total = 0
-        month = 0
-        day = 0
-        ndays = 0
+        last_month = 0
+        last_week = 0
+        last_day = 0
+        date = '0 0 0'
 
-        last_day = '0'
-        last_date = '0 0 0'
-        
 
     else:
-        s = ast.literal_eval(soup.contents[0])
-        stripdates = list(s['downloads'].keys())
-        ndays = len(s['downloads'].values())
-     
-        total = s['total_downloads']
-        month = sum(s['downloads'].values())
-        day = sum(list(s['downloads'].values())[:7]) 
+        total = data['total_downloads']
+        today = datetime.today()
+        last_week = 0
+        last_month = 0
+        last_day = 0
+        for date in (data['downloads']):
+            dateformat = datetime.strptime(date, '%Y-%m-%d')
+            date_difference = today - dateformat
+            if date_difference.days <= 30:
+                for n in data['downloads'][date]:
+                    last_month += data['downloads'][date][n]
+            if date_difference.days <= 7:
+                for n in data['downloads'][date]:
+                    last_week += data['downloads'][date][n]
+            if date_difference.days <= 1:
+                for n in data['downloads'][date]:
+                    last_day += data['downloads'][date][n]
 
-        last_day = s['downloads'][stripdates[0]]
-        last_date = stripdates[0]
-
-    return total, month, day, last_day, last_date, ndays
+    return total, last_month, last_week, last_day, date
 
 
 

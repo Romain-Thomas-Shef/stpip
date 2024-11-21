@@ -3,8 +3,8 @@
 This file organises the command line interface
 
 @R. Thomas
-@Santiago, Chile
-@2019
+@Santiago, Chile/ Sheffield, UK
+@2019-24
 '''
 
 
@@ -29,16 +29,15 @@ def command_line(args):
     '''
 
     ##create parser object
-    parser = argparse.ArgumentParser(description='A pepy.tech web scraping for pypi download stats, version %s, \
-            Licence: GPL'%(info.__version__))
+    parser = argparse.ArgumentParser(description='A pepy.tech web scraping for pypi'+\
+                                                 f' download stats, version {info.__version__},'+ \
+                                                 'Licence: GPL')
 
 
     ###optional arguments
-    parser.add_argument('-p', help='file, or list of file separated by comas (no space)')
-    parser.add_argument('-w', help='if you just want the last week download counts' , action='store_true')
-    parser.add_argument('-m', help='if you just want the last month download counts' , action='store_true')
-    parser.add_argument('-t', help='if you just want download counts all time' , action='store_true')
-    parser.add_argument('--version', help='Display the version of stpip', action='store_true')
+    parser.add_argument('-k', help='API Key for pepy.tech (you need an account)')
+    parser.add_argument('-p', help='package, or list of packages separated by comas (no space)')
+    parser.add_argument('--version', action='version', version=info.__version__)
 
     ##create a group of arguments that are mandatory
     return parser.parse_args(args)

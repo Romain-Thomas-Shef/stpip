@@ -1,10 +1,8 @@
-Metadata-Version: 1.2
+Metadata-Version: 2.1
 Name: stpip
-Version: 19.5.0
-Summary: a pepy.tech webscraping for pypi download statistics
-Home-page: https://github.com/astrom-tom/stpip
-Author: Romain Thomas
-License: GNU GPL v3
-Description: UNKNOWN
-Platform: UNKNOWN
-Requires-Python: >=3.5
+Version: 24.11
+Author-email: "R. Thomas" <romain.thomas@sheffield.ac.uk>
+Project-URL: repository, https://github.com/Romain-Thomas-Shef/stpip
+License-File: LICENSE
+Requires-Dist: requests>=2.21.0
+Requires-Dist: bs4>=0.0.1

@@ -1,7 +1,7 @@
 LICENSE
 MANIFEST.in
 README.md
-setup.py
+pyproject.toml
 stpip/__info__.py
 stpip/__main__.py
 stpip/cli.py

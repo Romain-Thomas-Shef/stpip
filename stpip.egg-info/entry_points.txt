@@ -1,3 +1,2 @@
 [console_scripts]
 stpip = stpip.__main__:main
-

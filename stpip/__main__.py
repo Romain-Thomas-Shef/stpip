@@ -1,6 +1,5 @@
 #!/usr/bin/./python
 # -*- coding: utf-8 -*-
-
 '''
 ---stpip---
 
@@ -12,6 +11,7 @@ usage: stpip --help
 
 ###Python standard library
 import sys
+import os
 
 ###local imports
 from . import cli
@@ -31,36 +31,34 @@ def main():
         print('\033[1m[stpip Error]> no argument passed ...exit\033[0;0m')
         sys.exit()
 
-    
-    if args.version:
-        print('version %s, Author: %s'%(info.__version__, info.__credits__))
-        sys.exit()
-
     if args.p:
-        ###extract package names from CLI
-        packs = args.p.split(',')
+        if not args.k:
+            print('\033[1m[stpip Error]> Need an API key file...exit\033[0;0m')
+            sys.exit()
+        else:
+            #Check is apikey file is there
+            if not os.path.isfile(args.k):
+                print('\033[1m[stpip Error]> apikey file does not exist')
+                sys.exit()
 
-        if len(packs)>1:
-            tot = 0
+            ##read the key
+            with open(args.k) as f:
+                apikey = f.readline().strip()
 
-        ##and go scraping!
-        for i in packs:
-            total, month, day, yesterday, yest_down, ndays = scraping.scrap(i)
-            
+            ###extract package names from CLI
+            packs = args.p.split(',')
+
             if len(packs)>1:
-                tot += int(total) 
+                tot = 0
 
-            if not args.t and not args.m and not args.w:
-                display.full(total, month, day, yesterday, yest_down, ndays, i)
+            ##and go scraping!
+            for i in packs:
+                total, month, week, yesterday, yest_date= scraping.scrap(i, apikey)
 
-            elif args.t:
-                display.indiv(total, 'total', i)
+                if len(packs)>1:
+                    tot += int(total)
 
-            elif args.m:
-                display.indiv(month, 'month', i)
+                display.full(total, month, week, yesterday, yest_date, i)
 
-            elif args.w:
-                display.indiv(day, 'week', i)
-
-        if len(packs)>1:
-            print('\033[1mTotal for all requested packages: %s Downloads'% tot)
+            if len(packs)>1:
+                print(f'\033[1mTotal for all requested packages: {tot} Downloads')

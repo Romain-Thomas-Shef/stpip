@@ -17,68 +17,34 @@ How to use it?
 
 To display the help you can `stpip --help` and you will get:
 
-	`usage: stpip [-h] [-w] [-m] [-t] [--version] package
+    `usage: stpip [-h] [-k K] [-p P] [--version]
 
-	A pepy.tech web scraping for pypi download stats, version 19.3.0, Licence: GPL
+    A pepy.tech web scraping for pypi download stats, version 24.11.0,Licence: GPL
 
-	optional arguments:
-	  -h, --help  show this help message and exit
-	  -p P        file, or list of file separated by comas (no space)
-	  -w          if you just want the last week download counts
-	  -m          if you just want the last month download counts
-	  -t          if you just want download counts all time
-	  --version   Display the version of stpip
+    options:
+        -h, --help  show this help message and exit
+        -k K        API Key for pepy.tech (you need an account)
+        -p P        package, or list of packages separated by comas (no space)
+        --version   show program's version number and exit
 
-The only mandatory argument is the name of the package. Providing only this one will give all the information. For example, `matplotlip`:
 
-	>> stpip -p matplotlib
+The two mandatory arguments are the apikey file and the name of the package(s). The apikey can be retrieve from pepy.tech when you create an account. Then you just need to copy it in a text file. Once done, you can start using stpip: 
 
-will give:
-
-	###############################################
-	      Download counts for matplotlib 
-	 Total all time: 48011552
-	 Total last 30 days: 6327682
-	 Total last 7 days: 1790028
-	 last day 2019-03-18: 234,726
-	--> visit https://pepy.tech/project/matplotlib 
-	##############################################
-
-Then you can ask for some particular information with the '-t' (only total), '-m' (last month) and '-w' (only last week):
-
-	>> stpip -p matplotlib -t
+	>> stpip -k apikeyfile -p matplotlib
 
 will give:
 
-	###############################################
-	      Download counts for matplotlib 
-	 Total all time: 48011552
-	--> visit https://pepy.tech/project/matplotlib 
-	##############################################
-
+    ###############################################
+          Download counts for matplotlib
+     Total all time: 2034912890
+     Total last 7 days: 17319966
+     Total last 30 days: 69550689
+     last day 2024-11-20: 2792617
+    --> visit https://pepy.tech/project/matplotlib
+    ##############################################
 
 You can also give multiple packages:
 
-	>> stpip -p matplotlib,numpy
+	>> stpip -k apikeyfile -p matplotlib,numpy 
 
-will give:
-
-	###############################################
-	      Download counts for matplotlib 
-	 Total all time: 48011552
-	 Total last 30 days: 6327682
-	 Total last 7 days: 1790028
-	 last day 2019-03-18: 234,726
-	--> visit https://pepy.tech/project/matplotlib 
-	##############################################
-
-
-	###############################################
-	      Download counts for numpy 
-	 Total all time: 171005305
-	 Total last 30 days: 20108764
-	 Total last 7 days: 4608706
-	 last day 2019-03-18: 736,912
-	--> visit https://pepy.tech/project/numpy 
-	##############################################
-
+This will give the same blocks for all packages.

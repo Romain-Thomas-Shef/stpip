@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools"]
+requires-python = ">=3.10"
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stpip"
+version = "24.11"
+authors = [{ name = "R. Thomas", email = "romain.thomas@sheffield.ac.uk" }]
+dependencies = ["requests >= 2.21.0", "bs4 >= 0.0.1"]
+
+[project.urls]
+repository = "https://github.com/Romain-Thomas-Shef/stpip"
+
+
+[project.scripts]
+stpip = "stpip.__main__:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["/stpip"]
